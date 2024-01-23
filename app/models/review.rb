@@ -1,3 +1,4 @@
 class Review < ApplicationRecord
-  belongs_to :sessions
+  belongs_to :session
+  belongs_to :user
 end
