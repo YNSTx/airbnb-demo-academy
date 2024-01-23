@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def show
+    @session = current_user
     @session = Session.find(params[:id])
   end
-
 end

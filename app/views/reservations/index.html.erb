@@ -1,0 +1,5 @@
+<ul>
+  <% @reservations.each do |reservation| %>
+    <li><%= reservation.session.title %></li>
+  <% end %>
+</ul>
