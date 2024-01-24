@@ -1,9 +1,15 @@
+<div class="container-reserv">
+<div class="row-new">
+<div class="col">
+<h2>Your current reservations :</h2>
 <% @reservations.each do |reservation| %>
   <div>
-    <h2><%= reservation.lecture.title %></h2>
-    <p><%= reservation.lecture.description %></p>
-    <%= link_to 'Cancel Reservation', lecture_reservation_path(reservation.lecture, reservation), method: :delete %>
+    <p><%= reservation.lecture.title %></p>
+    <p><%= reservation.location %></p>
+    <%= link_to 'Show details of reservation', lecture_reservation_path(reservation.lecture, reservation), method: :delete %>
   </div>
 <% end %>
 
 <%= link_to 'Back to lectures', lectures_path %>
+
+</div></div></div>
