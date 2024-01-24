@@ -1,6 +1,6 @@
 <h1>New Review</h1>
 
-<%= form_with(model: [@session, @review], url: session_reviews_path(@session), method: :post) do |f| %>
+<%= form_with(model: [@lecture, @review], url: lecture_reviews_path(@lecture), method: :post) do |f| %>
   <%= f.label :content %>
   <%= f.text_area :content %>
 
@@ -10,4 +10,4 @@
   <%= f.submit 'Create Review' %>
 <% end %>
 
-<%= link_to 'Back to Session', session_path(@session) %>
+<%= link_to 'Back to lecture', lecture_path(@lecture) %>

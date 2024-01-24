@@ -2,17 +2,18 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @session = Session.find(params[:session_id])
+    @lecture = Lecture.find(params[:lecture_id])
     @review = Review.new
   end
 
   def create
-    @session = Session.find(params[:session_id])
     @review = Review.new(review_params)
-    @review.session = @session
+    @lecture = Lecture.find(params[:lecture_id])
+    @review.lecture = @lecture
+    @review.user = current_user
 
-    if @review.save
-      redirect_to sessions_path(@session), notice: 'Review created successfully.'
+    if @review.save!
+      redirect_to lectures_path(@lecture), notice: 'Review created successfully.'
     else
       render :new
     end

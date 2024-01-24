@@ -1,5 +1,5 @@
-<h2><%= @reservation.session.title %></h2>
+<h2><%= @reservation.lecture.title %></h2>
 
-<%= link_to 'Cancel Reservation', session_reservation_path(@reservation.session, @reservation), method: :delete, data: { confirm: 'Are you sure you want to cancel this reservation?' } %>
+<%= link_to 'Cancel Reservation', lecture_reservation_path(@reservation.lecture, @reservation), method: :delete, data: { confirm: 'Are you sure you want to cancel this reservation?' } %>
 
-<%= link_to 'Back to Reservations', session_reservations_path %>
+<%= link_to 'Back to Reservations', lecture_reservations_path %>

@@ -10,16 +10,16 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @session = Session.find(params[:session_id])
-    @reservation = current_user.reservations.build(session: @session)
+    @lecture = Lecture.find(params[:lecture_id])
+    @reservation = current_user.reservations.build(lecture: @lecture)
   end
 
   def create
-    @session = Session.find(params[:session_id])
-    @reservation = current_user.reservations.new(reservation_params.merge(session: @session))
+    @lecture = Lecture.find(params[:lecture_id])
+    @reservation = current_user.reservations.new(reservation_params.merge(lecture: @lecture))
 
     if @reservation.save
-      redirect_to session_reservations_path, notice: 'Reservation created successfully.'
+      redirect_to lecture_reservations_path, notice: 'Reservation created successfully.'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    redirect_to reservations_path(@session.reservation), notice: 'Reservation was successfully canceled.'
+    redirect_to reservations_path(@lecture.reservation), notice: 'Reservation was successfully canceled.'
   end
 
   private

@@ -14,31 +14,33 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_094111) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "lectures", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "available_places"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.string "location"
     t.bigint "user_id", null: false
-    t.bigint "session_id", null: false
+    t.bigint "lecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["session_id"], name: "index_reservations_on_session_id"
+    t.index ["lecture_id"], name: "index_reservations_on_lecture_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
-    t.bigint "sessions_id", null: false
+    t.bigint "lecture_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sessions_id"], name: "index_reviews_on_sessions_id"
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.integer "available_places"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["lecture_id"], name: "index_reviews_on_lecture_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,7 +57,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_094111) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "reservations", "sessions"
+  add_foreign_key "reservations", "lectures"
   add_foreign_key "reservations", "users"
-  add_foreign_key "reviews", "sessions", column: "sessions_id"
+  add_foreign_key "reviews", "lectures"
+  add_foreign_key "reviews", "users"
 end

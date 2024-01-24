@@ -1,0 +1,10 @@
+<h2><%= @lecture.title %></h2>
+<p><%=  @lecture.description %></p>
+<p><%=  @lecture.available_places %></p>
+
+      <%= simple_form_for [@lecture, @review] do |f| %>
+        <%= f.input :rating, collection: 0..5 %>
+        <%= f.input :content%>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+      <%= link_to "See all lectures", lectures_path %>
