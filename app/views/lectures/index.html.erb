@@ -1,0 +1,10 @@
+<h1>Lectures</h1>
+<% @lectures.each do |lecture| %>
+  <div>
+    <h2><%= lecture.title %></h2>
+    <p><%= lecture.description %></p>
+    <p>Available Places: <%= lecture.available_places %></p>
+    <%= link_to 'View Details', lecture_path(lecture) %>
+    <%= link_to 'Book Now', lecture_path(lecture), method: :post %>
+  </div>
+<% end %>
