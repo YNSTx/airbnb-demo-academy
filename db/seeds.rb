@@ -7,6 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Session.destroy_all
+User.destroy_all
+
 Session.create(title: "Machine Learning Fundamentals", description: "Explore the fundamentals of machine learning, covering topics such as supervised and unsupervised learning, regression, classification, and clustering. Learn how to build and evaluate machine learning models using popular frameworks like scikit-learn and TensorFlow.", available_places: 25)
 Session.create(title: "Big Data Analytics and Technologies", description: "Dive into the world of big data analytics, understanding technologies like Apache Hadoop and Spark. Discover how to process and analyze massive datasets efficiently, and gain insights into data storage, processing frameworks, and distributed computing for big data applications.", available_places: 40)
 Session.create(title: "Data Visualization Workshop", description: "Join us for a hands-on workshop on data visualization techniques. Explore tools like Matplotlib, Seaborn, and Plotly to create insightful and compelling visual representations of data. Learn the art of storytelling through data visualization and enhance your ability to communicate findings effectively.", available_places: 20)
