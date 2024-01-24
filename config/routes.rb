@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :users, only: [:index]
   resources :sessions, only: [:index, :show] do
-  resources :reservations
+    resources :reservations
+  end
+  resources :sessions, only: [:index, :show] do
+    resources :reviews
   end
 end

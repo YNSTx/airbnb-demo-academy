@@ -1,7 +1,10 @@
-<ul>
-  <% @sessions.each do |session| %>
-    <li><%= session.title %></li>
-    <li><%= session.description %></li>
-    <li><%= session.available_places %></li>
-  <% end %>
-</ul>
+<h1>Sessions</h1>
+<% @sessions.each do |session| %>
+  <div>
+    <h2><%= session.title %></h2>
+    <p><%= session.description %></p>
+    <p>Available Places: <%= session.available_places %></p>
+    <%= link_to 'View Details', session_path(session) %>
+    <%= link_to 'Book Now', session_path(session), method: :post %>
+  </div>
+<% end %>

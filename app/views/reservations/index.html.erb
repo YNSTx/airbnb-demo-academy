@@ -1,5 +1,9 @@
-<ul>
-  <% @reservations.each do |reservation| %>
-    <li><%= reservation.session.title %></li>
-  <% end %>
-</ul>
+<% @reservations.each do |reservation| %>
+  <div>
+    <h2><%= reservation.session.title %></h2>
+    <p><%= reservation.session.description %></p>
+    <%= link_to 'Cancel Reservation', session_reservation_path(reservation.session, reservation), method: :delete %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Sessions', sessions_path %>
