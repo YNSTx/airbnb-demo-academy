@@ -207,7 +207,7 @@ Generic layout (demo looks)
 
 body {
   margin: 0;
-  padding: 48px 0;
+  padding: 48px 0 0 0;
   font-family: "Figtree", sans-serif;
   font-size: 1.2rem;
   line-height: 1.6rem;
@@ -262,4 +262,27 @@ body {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.container-index {
+  margin-top: 40px;
+  background-color: white;
+  padding: 20px; /* Adjust the padding as needed */
+  margin-left: 150px; /* Adjust the left margin as needed */
+  margin-right: 150px; /* Adjust the right margin as needed */
+}
+.col {
+  margin: 0 auto; /* This centers the content horizontally */
+  max-width: 800px; /* Adjust the max-width as needed */
+}
+.col > div {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease; /* Ajoutez une transition à la propriété box-shadow */
+}
+
+.col > div:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre au survol pour un effet visuel */
 }

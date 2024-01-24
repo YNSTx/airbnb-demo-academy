@@ -13,27 +13,15 @@
 <body class="d-flex flex-column min-vh-100">
   <%= render "shared/navbar" %>
 
-  <%= render "shared/flashes" %>
 
 
 
     <%= yield %>
 
-      <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
 
-       <div class="footer mt-auto">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    Follow us <i class="fas fa-heart"></i> at DemoAcademy
-  </div>
-</div>
+  <%= render "shared/flashes" %>
+   <%= render "shared/footer" %>
+
 
   </body>
 </html>
