@@ -12,11 +12,6 @@
 }
 
 .navbar-lewagon {
-  position: relative; /* or position: absolute; */
-  /* other styles */
-}
-
-.navbar-lewagon {
   display: flex;
   justify-content: space-between; /* or other values */
   align-items: center; /* or other values */
@@ -26,4 +21,3 @@
   background-origin: content-box; /* or other values */
   /* other styles */
 }
-
