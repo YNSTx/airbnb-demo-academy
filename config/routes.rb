@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :users, only: [:index]
   root to: "pages#home"
-  resources :reservations, only: [:index ]
+  resources :reservations, only: [:index, :destroy]
 
   resources :lectures, only: [:index, :show] do
-    resources :reservations, expect: [:index ]
+    resources :reservations, except: [:index, :destroy]
   end
   resources :lectures, only: [:index, :show] do
     resources :reviews
