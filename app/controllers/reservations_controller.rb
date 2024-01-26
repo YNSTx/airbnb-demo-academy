@@ -16,26 +16,24 @@ class ReservationsController < ApplicationController
 
   def create
     @lecture = Lecture.find(params[:lecture_id])
-    @reservation = current_user.reservations.new(reservation_params.merge(lecture: @lecture))
-
-    if @reservation.save
-      redirect_to lecture_reservations_path, notice: 'Reservation created successfully.'
-    else
-      render :new
-    end
-
+    @reservation = Reservation.new(reservation_params)
+    @reservation.lecture = @lecture
+    @reservation.user = current_user
+    @reservation.save!
     if @lecture.available_places > 0
       @lecture.update(available_places: @lecture.available_places - 1)
-      @reservation.save
       flash[:notice] = 'Reservation successful!'
+
     else
       flash[:alert] = 'No available places left for reservation.'
     end
     redirect_to lecture_reservations_path
+
   end
 
   def destroy
     @reservation = Reservation.find(params[:id])
+    @reservation.lecture.update(available_places: @reservation.lecture.available_places + 1)
     @reservation.destroy
     redirect_to reservations_path, notice: 'Reservation was successfully canceled.'
   end
