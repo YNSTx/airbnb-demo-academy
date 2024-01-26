@@ -1,22 +1,19 @@
-
-
-  <div class="container mt-5">
-    <h1>Your Reservations</h1>
-    <div>
+<div class="container mt-5">
+  <h1>Your Reservations</h1>
+  <div>
     <div class="new-card ">
       <% @reservations.each do |reservation| %>
         <div class="card mb-4">
           <div class="card-body">
             <p><%= reservation.lecture.title %></p>
             <p><%= reservation.location %></p>
-            <%= link_to 'Cancel Reservation', lecture_reservation_path(reservation.lecture, reservation), method: :delete, class: 'btn btn-danger' %>
+            <%= link_to 'View details of reservation', lecture_reservation_path(reservation.lecture, reservation), method: :delete, class: 'btn btn-primary btn-danger', style: 'border-radius: 5px;' %>
           </div>
         </div>
       <% end %>
-
     </div>
     <div class="text-center">
       <%= link_to 'Back to Lectures', lectures_path, class: 'btn btn-secondary mt-3' %>
     </div>
-
   </div>
+</div>

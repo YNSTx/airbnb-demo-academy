@@ -27,7 +27,7 @@ class ReservationsController < ApplicationController
     else
       flash[:alert] = 'No available places left for reservation.'
     end
-    redirect_to lecture_reservations_path
+    redirect_to reservations_path
 
   end
 
