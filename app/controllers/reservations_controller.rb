@@ -23,6 +23,15 @@ class ReservationsController < ApplicationController
     else
       render :new
     end
+
+    if @lecture.available_places > 0
+      @lecture.update(available_places: @lecture.available_places - 1)
+      @reservation.save
+      flash[:notice] = 'Reservation successful!'
+    else
+      flash[:alert] = 'No available places left for reservation.'
+    end
+    redirect_to lecture_reservations_path
   end
 
   def destroy
@@ -30,6 +39,8 @@ class ReservationsController < ApplicationController
     @reservation.destroy
     redirect_to reservations_path(@lecture.reservation), notice: 'Reservation was successfully canceled.'
   end
+
+
 
   private
 
