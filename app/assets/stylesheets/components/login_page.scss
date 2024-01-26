@@ -1,0 +1,94 @@
+.container {
+  margin-top: 50px;
+}
+
+.border-rounded {
+  border-radius: 10px;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.p-4 {
+  padding: 1.5rem;
+}
+
+.form-inputs input {
+  width: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.form-inputs input:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .col-md-6 {
+    max-width: 100%;
+  }
+}
+
+.container .col-md-4 {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.container .col-md-4:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.container {
+  .row {
+    .col-md-6 {
+      border: 1px solid #ccc;
+      margin: 0;
+      padding: 0;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .align-items-stretch {
+      align-items: stretch;
+    }
+  }
+}
+
+/* components/login_page.scss */
+
+.container {
+  .row {
+    .col-md-4 {
+      border: 1px solid #ccc; /* Optional: Add a border for visual separation */
+      margin: 0; /* Remove all margins */
+      padding: 0; /* Remove all padding */
+      zoom: 1; /* Reset zoom level */
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .align-items-stretch {
+      align-items: stretch;
+    }
+
+    img {
+      max-width: 100%; /* Ensure the image doesn't exceed its container width */
+      height: auto; /* Maintain aspect ratio */
+    }
+  }
+}
