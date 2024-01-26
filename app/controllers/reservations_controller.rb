@@ -26,9 +26,9 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation = current_user.reservation.find(params[:id])
+    @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    redirect_to reservations_path(@lecture.reservation), notice: 'Reservation was successfully canceled.'
+    redirect_to reservations_path, notice: 'Reservation was successfully canceled.'
   end
 
   private
