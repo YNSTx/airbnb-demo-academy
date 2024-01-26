@@ -2,12 +2,13 @@
     <div class="row">
       <div class="col">
 
-        <div class="card mb-4">
-          <div class="card-body">
-            <h2><%= @reservation.lecture.title %></h2>
-
-            <p><%= @reservation.location %></p>
-            <%= link_to 'Delete reservation', reservation_path(@reservation), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to cancel this reservation?' } %>
+<div class="card mb-4">
+<div class="card-body">
+<h2><%= @reservation.lecture.title %></h2>
+ <p><%= @reservation.location %></p>
+<form action="/reservations/<%= @reservation.id %>" method = "delete">
+<input type = "submit" value = 'Delete reservation'/>
+</form>
 
             <%= link_to 'Back to reservations', reservations_path, class: 'btn btn-primary' %>
 
