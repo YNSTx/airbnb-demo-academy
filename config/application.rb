@@ -14,6 +14,9 @@ module AirbnbDemoAcademy
       generate.test_framework :test_unit, fixture: false
     end
 
+    # Add the following line to configure precompiled assets
+    config.assets.precompile += %w( components/login_page.scss )
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
@@ -23,7 +26,7 @@ module AirbnbDemoAcademy
     config.autoload_lib(ignore: %w(assets tasks))
 
     # Configuration for the application, engines, and railties goes here.
-    #
+
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
