@@ -16,8 +16,8 @@ module AirbnbDemoAcademy
 
     # Add the following line to configure precompiled assets
     config.assets.precompile += %w( components/login_page.scss )
-    config.assets.precompile += %w( components/lecture_page.scss )
-
+    config.assets.precompile += %w( components/reservations_page.scss )
+    config.assets.precompile += %w( components/lectures_page.scss )
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1

@@ -1,19 +1,31 @@
+<<<<<<< HEAD
   <div class="container mt-5">
     <div class="row">
       <div class="col">
+=======
+<%= stylesheet_link_tag 'components/reservations_page' %>
+>>>>>>> master
 
-<div class="card mb-4">
-<div class="card-body">
-<h2><%= @reservation.lecture.title %></h2>
- <p><%= @reservation.location %></p>
-<form action="/reservations/<%= @reservation.id %>" method = "delete">
-<input type = "submit" value = 'Delete reservation'/>
-</form>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="card mb-4 extra-height">
+        <div class="card-body">
+          <p><strong>Lecture selected:</strong> <%= @reservation.lecture.title %></p>
+          <p><strong>City hub:</strong> <%= @reservation.location %></p>
+          <p><strong>Created at:</strong> <%= @reservation.created_at %></p>
+            <p><strong>First name:</strong> <%= current_user.first_name %></p>
+            <p><strong>Last name:</strong> <%= current_user.last_name %></p>
+            <p><strong>Email of confirmation:</strong> <%= current_user.email %></p>
 
-            <%= link_to 'Back to reservations', reservations_path, class: 'btn btn-primary' %>
+          <form class="d-flex" action="/reservations/<%= @reservation.id %>" method="delete">
+            <button type="submit" class="btn btn-outline-danger mb-2 rounded-pill me-2">Delete reservation</button>
+          </form>
 
-          </div>
+          <%= link_to 'Back to reservations', reservations_path, class: 'btn btn-primary rounded-pill' %>
+
         </div>
       </div>
     </div>
   </div>
+</div>

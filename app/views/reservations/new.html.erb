@@ -6,7 +6,7 @@
 
     <%= simple_form_for @reservation, url: lecture_reservations_path(@lecture), method: :post do |f| %>
       <div class="reserv_container">
-        <%= f.input :location, label: 'Location', class: 'form-control mb-3' %>
+        <%= f.input :location, label: 'Location', collection: ['Casablanca', 'Rabat'], include_blank: false, class: 'form-control mb-3' %>
 
         <%= f.submit 'Create Reservation', class: 'btn btn-primary' %>
       </div>
