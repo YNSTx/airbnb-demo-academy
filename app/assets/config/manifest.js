@@ -5,3 +5,4 @@
 //= link popper.js
 //= link bootstrap.min.js
 //= link components/login_page.css
+//= link components/lecture_page.css

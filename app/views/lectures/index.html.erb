@@ -1,16 +1,19 @@
 <div class="container-index">
-<div class="row">
-<div class="col">
+  <div class="row">
+    <div class="col">
       <h1 class="text-center mb-4"><strong>Lectures</strong></h1>
-<% @lectures.each do |lecture| %>
-  <div>
-    <h2><%= lecture.title %></h2>
-    <p><%= lecture.description %></p>
-    <p>Available Places: <%= lecture.available_places %></p>
-<%= link_to 'View Details', lecture_path(lecture), class: 'btn btn-light' %>
-<%= link_to 'Book Now', new_lecture_reservation_path(lecture), method: :post, class: 'btn btn-success' %>
+
+      <% @lectures.each do |lecture| %>
+        <div class="lecture-card">
+          <h2><%= lecture.title %></h2>
+          <p><%= lecture.description %></p>
+          <p>Available Places: <%= lecture.available_places %></p>
+
+          <%= link_to 'View Details', lecture_path(lecture), class: 'btn btn-primary' %>
+          <%= link_to 'Book Now', new_lecture_reservation_path(lecture), method: :post, class: 'btn btn-success text-white' %>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-<% end %>
-</div>
-</div>
 </div>
